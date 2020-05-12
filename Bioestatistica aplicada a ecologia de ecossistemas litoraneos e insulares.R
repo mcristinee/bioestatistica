@@ -6,7 +6,7 @@ hist(rnorm(9000,mean=130,sd=3),freq=FALSE, xlab = "Comprimento Peixes", ylab = "
 curve(dnorm(x,mean=130,sd=3),col=2,lty=1,lwd=2,add=TRUE) # Inserimos a curva em forma de sino
 
 
-#### VAmos gerar dados de comprimento de peixes para as análises e gráficos
+#### Vamos gerar dados de comprimento de peixes para as análises e gráficos
 #Usei a função rnorm para gerar dados com distribuição normal, 
 #recortei e colei abaixo para podermos trabalhar sempre com os mesmos dados
 
@@ -68,14 +68,12 @@ write.csv(a,file = "Describe.csv") #Salvamos um arquivo .csv com esses resultado
 ## AGORA VAMOS REALIZAR O TESTE-T Comparando os comprimentos de machos e femeas para verificar se há diferença no tamanho dos peixes de acordo com o sexo.
 
 head(dados) # Primeiro verificamos a estrutura dos dados
-shapiro.test(dados$peixe[dados$sex=="macho"]) #agora indexamos os machos e verificamos a normalidade dos dados
-shapiro.test(dados$peixe[dados$sex=="femea"]) #fazemos a mesma coisa com as femeas
+shapiro.test(dados$peixe[dados$sexo=="macho"]) #agora indexamos os machos e verificamos a normalidade dos dados
+shapiro.test(dados$peixe[dados$sexo=="femea"]) #fazemos a mesma coisa com as femeas
 
+bartlett.test(dados$peixe~dados$sexo) #Realizamos o teste de homogeneidade de variancias.
 
-library(car) #carregamos o pacote car, para poder testar a homogeneidade de variancias
-leveneTest(dados$peixe~dados$sex) #Realizamos o teste da premissa
-
-t.test(dados$peixe~dados$sex) #realizamos o teste-t. E verificamos o p-value.
+t.test(dados$peixe~dados$sexo) #realizamos o teste-t. E verificamos o p-value para saber a significancia do teste.
 
 
 ## ANOVA
