@@ -1,4 +1,4 @@
-# bioestatistica
+# Bioestatistica
 Capítulo de Bioestatística Aplicada a Ecologia de Sistemas Litorâneos e Insulares.
 Nessa página podemos encontrar os scripts utilizados para gerar os dados, análises e gráficos do nosso capítulo. 
 
