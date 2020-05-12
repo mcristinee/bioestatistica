@@ -119,4 +119,8 @@ lines(c(1,10),c(media.1,media.1),col=1) #Agora a média da pop 1
 lines(c(11,20),c(media.2,media.2),col=2)#Agora a média da pop 2
 lines(c(21,30),c(media.3,media.3),col=3)#Agora a média da pop 3
 
+#Podemos agora verificar a tabela da ANOVA.
+ANV = aov(peso~praia) #realizamos a análise de variancia ANOVA 
+summary(ANV) #verificamos a tabela de resultados. 
+
 
