@@ -35,6 +35,8 @@ mtext(c("Comprimento (cm)"), side = 2, line = 2.7, cex=1.8, las=3)# Rotulo do y
 
 ## Aqui geramos uma função simples, pra agruparmos e calcularmos os principais parâmetros dos nossos dados.
 describe = function(x){
+  if(class(m)!="matrix"){
+    stop("Vacilou, o vetor precisa ser uma matriz")} # colocando o pressuposto de que a tabela de dados tem que ser uma matriz.
   getmode <- function(v) {
     uniqv <- unique(v)
     uniqv[which.max(tabulate(match(v, uniqv)))]
@@ -59,7 +61,7 @@ describe = function(x){
   return (round(resultados,2))
 }
 
-dado = as.matrix(data.frame(machos,femeas)) # Usamos a função, com a função as.matrix para transformar todos os dados em numericos e realizar o calculo
+dado = as.matrix(data.frame(machos,femeas)) # Criamos um data.frame com 1 coluna para os machos e 1 para as fêmeas. A funçao as.matrix trasnforma a tabela em matriz, para a funáo describe funcionar. 
 describe(dado) # Calculamos e visualizamos os parametros.
 a= print(describe(dado)) # Armazenamos esses resultados no objeto "a"
 write.csv(a,file = "Describe.csv") #Salvamos um arquivo .csv com esses resultados na nossa pasta de trabalho.
