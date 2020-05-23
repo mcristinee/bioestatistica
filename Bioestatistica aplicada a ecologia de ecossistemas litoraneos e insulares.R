@@ -47,18 +47,18 @@ describe = function(x){
   q75 <- function(z){
     quantile(z,c(.75))
   }
-  N <- apply(x,2,length) #nÃÂºmero de elementos do vetor
-  Media <- apply(x,2,mean) #mÃÂ©dia de cada coluna do vetor
+  N <- apply(x,2,length) #número de elementos do vetor
+  Media <- apply(x,2,mean) #média de cada coluna do vetor
   Desvio_Padrao <- apply(x,2,sd) #desvio padrao para cada coluna do vetor
   Minimo <- apply(x,2,min) #Valor minimo para cada coluna do vetor
   Maximo <- apply(x,2,max) #Valor maximo para cada coluna do vetor
   Mediana <- apply(x,2,median) #Mediana para cada variavel
   Moda <- apply(x,2,getmode) #Moda 
   variancia <- apply(x,2,var) # Variancia
-  quantil25 <- apply(x,2,q25)
-  quantil75 <- apply(x,2,q75)
-  resultados <- data.frame(N,Minimo,Maximo,Moda,Media,Mediana,quantil25,quantil75,Desvio_Padrao,variancia)
-  return (round(resultados,2))
+  quantil25 <- apply(x,2,q25) #Quantil 25%
+  quantil75 <- apply(x,2,q75) #Quantil 75%
+  resultados <- data.frame(N,Minimo,Maximo,Moda,Media,Mediana,quantil25,quantil75,Desvio_Padrao,variancia) #Colocamos todos os resultados como um data.frame nesse objeto
+  return (round(resultados,2)) # Pedimos para funçao nos retornar aquilo que está contido no objeto resultados. 
 }
 
 dado = as.matrix(data.frame(machos,femeas)) # Criamos um data.frame com 1 coluna para os machos e 1 para as fêmeas. A funçao as.matrix trasnforma a tabela em matriz, para a funáo describe funcionar. 
