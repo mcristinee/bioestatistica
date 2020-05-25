@@ -77,6 +77,26 @@ bartlett.test(dados$peixe~dados$sexo) #Realizamos o teste de homogeneidade de va
 
 t.test(dados$peixe~dados$sexo) #realizamos o teste-t. E verificamos o p-value para saber a significancia do teste.
 
+## REGRESSÃO E CORRELAÇÃO
+
+nutrientes <- c(1,1,1,3,3,3,6,6,6,9,9,9,12,12,12,15,15,15)
+peso <- c(10,8,9, 12,11,13,15,13,12,16,17,15,18,19,18,20,19,18)
+
+plot(peso~nutrientes, xlab="Nutrientes(ug.L)", ylab="Peso(g)",par(cex.axis=1.4,cex.lab=1.4,las=1,bty="l", tcl=0.3,pch=16,cex=1.4,family = "serif"))
+
+#plotar linha de regressão
+reg <- lm(peso~nutrientes) 
+abline (reg, col = "red")
+
+#plotar o valor da correlação de Pearson
+legend("bottomright", bty="n", legend="r 0.95", cex = 1.2)
+
+# o summary da regressão nos dá o coeficiênte de determinação que também pode ser plotado
+summary(reg)
+
+#plotar o coeficiente de determinação
+legend("bottomright", bty="n", legend=paste("r² 0,91"), cex = 1.2)
+
 
 ## ANOVA
 #Utilizamos a função rnorm, mas copiei e colei abaixo para trabalharmos com os mesmos dados.
