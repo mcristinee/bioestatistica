@@ -82,7 +82,10 @@ t.test(dados$peixe~dados$sexo) #realizamos o teste-t. E verificamos o p-value pa
 nutrientes <- c(1,1,1,3,3,3,6,6,6,9,9,9,12,12,12,15,15,15)
 peso <- c(10,8,9, 12,11,13,15,13,12,16,17,15,18,19,18,20,19,18)
 
-plot(peso~nutrientes, xlab="Nutrientes(ug.L)", ylab="Peso(g)",par(cex.axis=1.4,cex.lab=1.4,las=1,bty="l", tcl=0.3,pch=16,cex=1.4,family = "serif"))
+par(cex.axis=1.4,cex.lab=1.4,las=1,bty="l", tcl=0.3,pch=16,cex=1.4,family = "serif")
+plot(peso~nutrientes, xlab="", ylab="Peso(g)")
+mtext(expression(µg.L^{-1}), side = 1, line = 4.2, cex = 1.5)
+mtext('Nutrientes', side = 1, line = 3, cex = 1.5)
 
 #plotar linha de regressão
 reg <- lm(peso~nutrientes) 
@@ -95,7 +98,7 @@ legend("bottomright", bty="n", legend="r 0.95", cex = 1.2)
 summary(reg)
 
 #plotar o coeficiente de determinação
-legend("bottomright", bty="n", legend=paste("r² 0,91"), cex = 1.2)
+legend("topleft", bty="n", legend=paste("r² 0,91"), cex = 1.2)
 
 
 ## ANOVA
